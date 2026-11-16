@@ -50,4 +50,4 @@ La aplicación no requiere backend propio ni base de datos.
 
 ## Sitio publicado
 
-Pendiente: agregar la URL pública de Vercel.
+[Visitar PokéRuta](https://pokeruta.vercel.app/)
