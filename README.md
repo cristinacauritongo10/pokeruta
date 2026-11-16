@@ -1,59 +1,53 @@
-# Pokeruta
+# PokéRuta
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.29.
+Aplicación web desarrollada con Angular para buscar Pokémon,
+consultar sus características y explorar sus evoluciones.
 
-## Development server
+## Autora
 
-To start a local development server, run:
+Cristina Cauritongo
 
-```bash
-ng serve
-```
+## Funcionalidades
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- Búsqueda por nombre o número.
+- Selección aleatoria entre los primeros 151 Pokémon.
+- Ficha con imagen, tipos, medidas y estadísticas.
+- Descripción y categoría en español cuando están disponibles.
+- Exploración de cadenas evolutivas y sus ramificaciones.
+- Selección de una evolución para consultar su ficha.
+- Mensajes de carga, búsquedas vacías, resultados inexistentes
+  y errores de conexión.
+- Caché de consultas e imágenes alternativas.
+- Interfaz adaptable a dispositivos móviles.
 
-## Code scaffolding
+## Endpoints utilizados
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+| Endpoint | Función |
+| --- | --- |
+| /pokemon/{nombre_o_id}/ | Imagen, tipos, medidas y estadísticas. |
+| /pokemon-species/{id}/ | Descripción, categoría y enlace evolutivo. |
+| /evolution-chain/{id}/ | Especies y ramas de evolución. |
 
-```bash
-ng generate component component-name
-```
+La consulta del Pokémon proporciona species.url. La consulta de
+esa especie proporciona evolution_chain.url. Así se relacionan
+los tres recursos en la ficha y la navegación entre evoluciones.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Instalación y ejecución
 
-```bash
-ng generate --help
-```
+Requiere Node.js y npm compatibles con Angular 21.
 
-## Building
+1. Clonar el repositorio.
+2. Abrir una terminal dentro del proyecto.
+3. Ejecutar: npm install
+4. Ejecutar: npm start
+5. Abrir: http://localhost:4200
 
-To build the project run:
+## Compilación
 
-```bash
-ng build
-```
+Ejecutar: npm run build
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+La aplicación no requiere backend propio ni base de datos.
 
-## Running unit tests
+## Sitio publicado
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Pendiente: agregar la URL pública de Vercel.

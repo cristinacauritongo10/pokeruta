@@ -1,0 +1,33 @@
+<form class="buscador" (ngSubmit)="enviar()">
+  <label for="consulta">Nombre o número del Pokémon</label>
+
+  <div class="controles">
+    <input
+      id="consulta"
+      name="consulta"
+      type="text"
+      [(ngModel)]="consulta"
+      placeholder="Ejemplo: charmander, eevee o 25"
+      autocomplete="off"
+      [disabled]="cargando"
+    >
+
+    <button type="submit" [disabled]="cargando">
+      Buscar
+    </button>
+
+    <button
+      type="button"
+      class="secundario"
+      [disabled]="cargando"
+      (click)="aleatorio.emit()"
+    >
+      Sorpréndeme
+    </button>
+  </div>
+
+  <p class="ayuda">
+    Escribe un nombre en inglés o un número.
+    “Sorpréndeme” selecciona entre los primeros 151 Pokémon.
+  </p>
+</form>

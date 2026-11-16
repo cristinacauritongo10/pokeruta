@@ -1,0 +1,56 @@
+<section class="panel-evoluciones">
+  <p class="etiqueta">Explora su familia</p>
+  <h2>Ruta de evolución</h2>
+
+  <p class="ayuda">
+    Selecciona una especie para consultar su ficha.
+    Las ramificaciones muestran sus distintas evoluciones.
+  </p>
+
+  <ng-container
+    [ngTemplateOutlet]="rama"
+    [ngTemplateOutletContext]="{
+      $implicit: cadena.chain,
+      etapa: 1
+    }"
+  ></ng-container>
+
+  @if (cadena.chain.evolves_to.length === 0) {
+    <p class="ayuda">
+      Esta especie no tiene evoluciones registradas.
+    </p>
+  }
+</section>
+
+<ng-template #rama let-nodo let-etapa="etapa">
+  <div class="rama">
+    <button
+      type="button"
+      class="evolucion"
+      [class.actual]="nodo.species.name === actual"
+      [disabled]="cargando || nodo.species.name === actual"
+      (click)="seleccionar.emit(nodo.species.name)"
+    >
+      <span>Etapa {{ etapa }}</span>
+      <strong>{{ nodo.species.name }}</strong>
+
+      @if (nodo.species.name === actual) {
+        <small>Seleccionado</small>
+      }
+    </button>
+
+    @if (nodo.evolves_to.length > 0) {
+      <div class="ramas">
+        @for (hijo of nodo.evolves_to; track hijo.species.url) {
+          <ng-container
+            [ngTemplateOutlet]="rama"
+            [ngTemplateOutletContext]="{
+              $implicit: hijo,
+              etapa: etapa + 1
+            }"
+          ></ng-container>
+        }
+      </div>
+    }
+  </div>
+</ng-template>

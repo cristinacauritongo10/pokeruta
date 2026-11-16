@@ -1,1 +1,367 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #302d36;
+  background: #f7f4ee;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  border-radius: 12px;
+  padding: 13px 22px;
+  background: #a93645;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+button:hover:not(:disabled) {
+  background: #862735;
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #7558a5;
+  outline-offset: 3px;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h2 {
+  margin-bottom: 16px;
+}
+
+.contenedor {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 45px 24px 20px;
+}
+
+.cabecera {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.marca,
+.etiqueta {
+  color: #a93645;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.cabecera h1 {
+  font-size: clamp(44px, 8vw, 70px);
+  letter-spacing: -3px;
+  margin: 10px 0;
+}
+
+.cabecera h1 span {
+  color: #a93645;
+}
+
+.cabecera > p,
+.ayuda {
+  color: #6e6873;
+  line-height: 1.6;
+}
+
+.panel-busqueda,
+.ficha,
+.panel-evoluciones {
+  background: white;
+  border: 1px solid #e8e1da;
+  border-radius: 24px;
+  padding: 28px;
+  margin-bottom: 24px;
+  box-shadow: 0 10px 35px rgb(64 42 33 / 4%);
+}
+
+.buscador label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.controles {
+  display: flex;
+  gap: 12px;
+}
+
+.controles input {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid #d9d1d5;
+  border-radius: 12px;
+  background: #fdfbfa;
+  padding: 14px 16px;
+}
+
+.secundario {
+  color: #8c2d3b;
+  background: #f5e6e8;
+}
+
+.secundario:hover:not(:disabled) {
+  background: #ecd0d5;
+}
+
+.ayuda {
+  font-size: 13px;
+  margin: 12px 0 0;
+}
+
+.estado {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  border-radius: 16px;
+  background: #ede8f3;
+  text-align: center;
+}
+
+.error {
+  color: #8c2332;
+  background: #f9e2e5;
+}
+
+.indicador {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  border: 3px solid #d2c4e3;
+  border-top-color: #7558a5;
+  border-radius: 50%;
+  animation: girar 0.8s linear infinite;
+}
+
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ficha {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 32px;
+}
+
+.ilustracion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f4eee7;
+  border-radius: 18px;
+  min-height: 300px;
+  padding: 20px;
+}
+
+.numero {
+  align-self: flex-start;
+  color: #77675a;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.ilustracion img {
+  width: 100%;
+  max-width: 300px;
+  height: 280px;
+  object-fit: contain;
+}
+
+.nombre {
+  font-size: 38px;
+  text-transform: capitalize;
+  margin-bottom: 12px;
+}
+
+.tipos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tipo {
+  background: #eee8f4;
+  color: #624d7b;
+  border-radius: 20px;
+  padding: 7px 15px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.descripcion {
+  color: #625c66;
+  line-height: 1.7;
+}
+
+.medidas {
+  display: flex;
+  gap: 40px;
+  margin: 24px 0;
+}
+
+.medidas span,
+.medidas strong {
+  display: block;
+}
+
+.medidas span {
+  color: #716a75;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.estadistica {
+  display: grid;
+  grid-template-columns: 120px 1fr 32px;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+
+.estadistica strong {
+  text-align: right;
+}
+
+progress {
+  width: 100%;
+  height: 10px;
+  accent-color: #a93645;
+}
+
+.panel-evoluciones > .ayuda {
+  margin-bottom: 24px;
+}
+
+.rama {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-width: 0;
+}
+
+.ramas {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-left: 2px solid #e2d7dc;
+  padding-left: 20px;
+}
+
+.evolucion {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 125px;
+  background: #f4eef0;
+  color: #583c47;
+}
+
+.evolucion:hover:not(:disabled) {
+  background: #ecd9df;
+}
+
+.evolucion span,
+.evolucion small {
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.evolucion strong {
+  text-transform: capitalize;
+}
+
+.evolucion.actual {
+  background: #a93645;
+  color: white;
+  opacity: 1;
+}
+
+footer {
+  padding: 15px;
+  text-align: center;
+  color: #746c77;
+  font-size: 12px;
+}
+
+@media (max-width: 700px) {
+  .contenedor {
+    padding: 28px 16px 16px;
+  }
+
+  .controles,
+  .rama {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ficha {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-busqueda,
+  .ficha,
+  .panel-evoluciones {
+    padding: 20px;
+  }
+
+  .ilustracion {
+    min-height: 240px;
+  }
+
+  .ilustracion img {
+    height: 220px;
+  }
+
+  .estadistica {
+    grid-template-columns: 105px 1fr 30px;
+  }
+
+  .ramas {
+    margin-left: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .indicador {
+    animation: none;
+  }
+
+  button {
+    transition: none;
+  }
+}

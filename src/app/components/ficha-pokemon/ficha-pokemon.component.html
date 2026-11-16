@@ -1,0 +1,51 @@
+<article class="ficha">
+    <div class="ilustracion">
+        <span class="numero">#{{ pokemon.id }}</span>
+
+        @if (imagen; as url) {
+        <img [src]="url" [alt]="pokemon.name" (error)="siguienteImagen()">
+        } @else {
+        <p>No se pudo cargar la imagen de este Pokémon.</p>
+        }
+    </div>
+
+        <div class="informacion">
+            <p class="etiqueta">{{ categoria }}</p>
+            <h2 class="nombre">{{ pokemon.name }}</h2>
+
+            <div class="tipos">
+                @for (elemento of pokemon.types; track elemento.type.name) {
+                <span class="tipo">{{ elemento.type.name }}</span>
+                }
+            </div>
+
+            <p class="descripcion">{{ descripcion }}</p>
+
+            <div class="medidas">
+                <div>
+                    <span>Altura</span>
+                    <strong>{{ pokemon.height / 10 }} m</strong>
+                </div>
+
+                <div>
+                    <span>Peso</span>
+                    <strong>{{ pokemon.weight / 10 }} kg</strong>
+                </div>
+            </div>
+
+            <h3>Estadísticas base</h3>
+
+            <div class="estadisticas">
+                @for (dato of pokemon.stats; track dato.stat.name) {
+                <div class="estadistica">
+                    <span>{{ nombreEstadistica(dato.stat.name) }}</span>
+
+                    <progress [value]="dato.base_stat" max="255"
+                        [attr.aria-label]="nombreEstadistica(dato.stat.name)"></progress>
+
+                    <strong>{{ dato.base_stat }}</strong>
+                </div>
+                }
+            </div>
+        </div>
+</article>
